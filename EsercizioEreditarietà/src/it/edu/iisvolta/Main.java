@@ -12,7 +12,7 @@ public class Main {
 		Scanner s=new Scanner(System.in);
 		String scelta1, scelta2;
 		Sim sm=new Sim("",null,0);
-		Smartphone sp=new Smartphone(false,"","",0,0,null,null);
+		Smartphone sp=new Smartphone(false,"","",0,0,null);
 		Tv tv=new Tv("","",0,false,"");
 		do {
 			System.out.println("-NEGOZIO DI ELETTRONICA-\n");
@@ -102,7 +102,7 @@ public class Main {
 		    	    	sp.Spegni();
 		    	    break;
 		    	    case "8":	//telefona
-			    	    
+			    	    sp.Telefona();
 			    	break;
 	    	        }
 	    			System.out.println("\nPremi Enter per continuare...");

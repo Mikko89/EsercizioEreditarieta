@@ -9,23 +9,19 @@ public class Smartphone extends Dispositivo{
 	private String presa;
 	private Sim scheda;
 	
-	public Smartphone(boolean stato, String marca, String modello, int pollici, int mpixel, String presa, Sim scheda) {
+	public Smartphone(boolean stato, String marca, String modello, int pollici, int mpixel, String presa) {
 		super(marca, modello);
 		this.pollici = pollici;
 		this.mPixel = mpixel;
 		this.presa = presa;
-		this.scheda = scheda;
 	}
 	
-	public void Telefona(int durata) {
-	/*	if(scheda.getScadenza().compareTo(LocalDate.now()))
-		{
-			
-		}
-		else
-		{
-			
-		}*/
+	public void Telefona() {
+		LocalDate oggi = LocalDate.now();
+		LocalDate scadenza = scheda.getScadenza();
+		int comparazione = oggi.compareTo(scadenza);
+		
+		System.out.println(comparazione);
 	}
 
 	public int getPollici() {

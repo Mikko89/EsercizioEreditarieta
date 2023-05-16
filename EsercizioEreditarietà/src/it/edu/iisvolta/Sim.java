@@ -19,7 +19,6 @@ public class Sim {
 
 	public void Ricarica(float importo) {
 		do {
-			importo=s.nextInt();
 			if(importo<=0)
 				System.out.println("Importo errato!!!");
 			else {
