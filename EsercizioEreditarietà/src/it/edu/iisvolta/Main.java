@@ -13,7 +13,7 @@ public class Main {
 		String scelta1, scelta2;
 		Sim sm=new Sim("",null,0);
 		Smartphone sp=new Smartphone(false,"","",0,0,null,null);
-		Tv tv=new Tv("","",0,false,"",null);
+		Tv tv=new Tv("","",0,false,"");
 		do {
 			System.out.println("-NEGOZIO DI ELETTRONICA-\n");
 	        System.out.println("1 - Reparto Smartphone");
@@ -142,7 +142,6 @@ public class Main {
 	    	        	tv.setPollici(pollici);
 	    	        	tv.setSmart(smart);
 	    	        	tv.setSistemaOperativo(so);
-	    	        	tv.setCanali(null);
 		    	    break;
 		    	    case "2":	//visualizza televisori
 		    	    	//String marca, String modello, int pollici, boolean smart, String sistemaOperativo,
@@ -172,10 +171,12 @@ public class Main {
 		    	        	tv.Spegni();
 		    	    break;
 		    	    case "5":	//sintonizza televisore
-		    	        	
+		    	        	tv.Sintonizza();
 			    	break;
 			    	case "6":	//guarda canale
-			    	        	
+			    		System.out.println("Che canale vuoi vedere?");
+			    		int nrCanale=Integer.parseInt(s.nextLine());
+			    			tv.guardaCanale(nrCanale);
 			    	break;
 	    	        }
 	    			System.out.println("\nPremi Enter per continuare...");
