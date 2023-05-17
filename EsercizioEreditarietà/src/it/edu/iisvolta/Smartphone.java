@@ -1,27 +1,42 @@
 package it.edu.iisvolta;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Smartphone extends Dispositivo{
+	
+	Scanner s=new Scanner(System.in);
 	
 	private int pollici;
 	private int mPixel;
 	private String presa;
 	private Sim scheda;
 	
-	public Smartphone(boolean stato, String marca, String modello, int pollici, int mpixel, String presa) {
+	public Smartphone(boolean stato, String marca, String modello, int pollici, int mpixel, String presa, Sim scheda) {
 		super(marca, modello);
 		this.pollici = pollici;
 		this.mPixel = mpixel;
 		this.presa = presa;
+		this.scheda=scheda;
 	}
 	
 	public void Telefona() {
-		LocalDate oggi = LocalDate.now();
-		LocalDate scadenza = scheda.getScadenza();
-		int comparazione = oggi.compareTo(scadenza);
-		
-		System.out.println(comparazione);
+		if(isStato()) {
+			LocalDate oggi = LocalDate.now();
+			LocalDate scadenza = scheda.getScadenza();
+			int comparazione = oggi.compareTo(scadenza);
+			if(comparazione<0){
+				if(scheda.getCredito()>0) {
+					System.out.print("\nQuanti minuti sarà la chiamata?");
+					int minuti=Integer.parseInt(s.nextLine());
+					float importoChiamata=minuti*0.10f;
+					float importoTot=scheda.getCredito()-importoChiamata;
+					scheda.setCredito(importoTot);
+				}
+			}else
+				System.out.println("Sim scaduta!");
+		}else
+			System.out.println("\nIl telefono è spento!");
 	}
 
 	public int getPollici() {
@@ -55,7 +70,4 @@ public class Smartphone extends Dispositivo{
 	public void setScheda(Sim scheda) {
 		this.scheda = scheda;
 	}
-	
-	
-
 }

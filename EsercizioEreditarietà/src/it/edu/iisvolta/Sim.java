@@ -10,21 +10,21 @@ public class Sim {
 	private String gestore;
 	private LocalDate scadenza;
 	
-	public Sim(String gestore, LocalDate scadenza, int credito) {
+	public Sim(String gestore, LocalDate scadenza, float credito) {
 		super();
 		this.gestore = gestore;
 		this.scadenza=scadenza;
-		credito=0;
+		credito=0.0f;
 	}
 
 	public void Ricarica(float importo) {
 		do {
-			if(importo<=0)
+			if(importo<=0.0f)
 				System.out.println("Importo errato!!!");
 			else {
 				credito+=importo;
 			}
-		}while(credito<=0);
+		}while(credito<=0.0f);
 	}
 
 	public float getCredito() {
@@ -32,7 +32,7 @@ public class Sim {
 	}
 
 	public void setCredito(float credito) {
-		if(credito<=0)
+		if(credito<=0.0f)
 			System.out.println("Credito a 0");
 		else
 			this.credito = credito;

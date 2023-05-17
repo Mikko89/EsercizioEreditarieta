@@ -15,17 +15,21 @@ public class Dispositivo {
 	}
 
 	public void Accendi() {
-		if(stato==false)
+		if(stato==false) {
+			System.out.println("\nDispositivo acceso");
 			stato=true;
+		}
 		else
-			System.out.println("Dispositivo già acceso!");
+			System.out.println("\nDispositivo già acceso!");
 	}
 	
 	public void Spegni() {
-		if(stato==true)
+		if(stato==true) {
+			System.out.println("\nDispositivo spento");
 			stato=false;
+		}
 		else
-			System.out.println("Dispositivo già spento!");
+			System.out.println("\nDispositivo già spento!");
 	}
 	
 	public boolean isStato() {

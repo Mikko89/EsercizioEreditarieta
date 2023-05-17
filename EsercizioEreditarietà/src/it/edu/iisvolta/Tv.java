@@ -7,10 +7,9 @@ public class Tv extends Dispositivo{
 	private int pollici;
 	private boolean smart;
 	private String sistemaOperativo;
-	ArrayList<String> canali=new ArrayList<String>();
+	private ArrayList<String> canali=new ArrayList<String>();;
 	
-	
-	public Tv(String marca, String modello, int pollici, boolean smart, String sistemaOperativo) {
+	public Tv(boolean stato, String marca, String modello, int pollici, boolean smart, String sistemaOperativo) {
 		super(marca, modello);
 		this.pollici = pollici;
 		this.smart = smart;
@@ -18,20 +17,24 @@ public class Tv extends Dispositivo{
 	}
 
 	public void Sintonizza() {
-		for(int i=0;i<=10;i++) {
-			canali.add(Integer.toString(i));
-		}
+		if(isStato()) {
+			for(int i=0;i<=9;i++) {
+				canali.add(Integer.toString(i));
+			}
+			System.out.println("\nCanali sintonizzati");
+		}else
+			System.out.println("\nIl televisore è spento!");
 	}
 	
 	public void guardaCanale(int nrCanale) {
 		boolean trovato=false;
 		for(int i=0;i<canali.size();i++)
-			if(i==nrCanale) {
-				trovato=false;
-				System.out.println("Stai guardando il canale: " +canali.get(i));
+			if(i==nrCanale-1) {
+				trovato=true;
+				System.out.println("\nStai guardando il canale: " +canali.get(i+1));
 			}
 		if(trovato==false)
-			System.out.println("Canale non trovato");
+			System.out.println("\nCanale non trovato");
 	}
 
 	public int getPollici() {
@@ -57,14 +60,8 @@ public class Tv extends Dispositivo{
 	public void setSistemaOperativo(String sistemaOperativo) {
 		this.sistemaOperativo = sistemaOperativo;
 	}
-
+	
 	public ArrayList<String> getCanali() {
 		return canali;
 	}
-
-	public void setCanali(ArrayList<String> canali) {
-		this.canali = canali;
-	}
-	
-	
 }
