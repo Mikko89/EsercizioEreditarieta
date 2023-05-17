@@ -174,8 +174,8 @@ public class Main {
 			    	break;
 			    	case "6":	//guarda canale
 			    		System.out.print("\nChe canale vuoi vedere?");
-			    		int nrCanale=Integer.parseInt(s.nextLine());
-			    			tv.guardaCanale(nrCanale);
+			    		int num=Integer.parseInt(s.nextLine());
+			    			tv.guardaCanale(num);
 			    	break;
 	    	        }
 	    	        if(!scelta2.equals("9")){

@@ -1,13 +1,16 @@
 package it.edu.iisvolta;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Tv extends Dispositivo{
 
+	Scanner s=new Scanner(System.in);
 	private int pollici;
 	private boolean smart;
 	private String sistemaOperativo;
 	private ArrayList<String> canali=new ArrayList<String>();;
+	Canale c=new Canale("", 0, 0);
 	
 	public Tv(boolean stato, String marca, String modello, int pollici, boolean smart, String sistemaOperativo) {
 		super(marca, modello);
@@ -28,11 +31,17 @@ public class Tv extends Dispositivo{
 	
 	public void guardaCanale(int nrCanale) {
 		boolean trovato=false;
-		for(int i=0;i<canali.size();i++)
-			if(i==nrCanale-1) {
+		for(int i=0;i<canali.size();i++) {
+			if(nrCanale-1==i) {
 				trovato=true;
-				System.out.println("\nStai guardando il canale: " +canali.get(i+1));
+				String canale=Integer.toString(nrCanale);
+				c.setNome(canale);
+				c.setNr(nrCanale);
+				c.setFrequenza(nrCanale);
 			}
+		}
+		System.out.println("\nStai guardando il canale: " +c.getNome() +" " +c.getNr() +" " +c.getFrequenza() +" Hz");
+			
 		if(trovato==false)
 			System.out.println("\nCanale non trovato");
 	}

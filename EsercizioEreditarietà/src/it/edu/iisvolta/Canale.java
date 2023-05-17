@@ -13,38 +13,14 @@ public class Canale {
 		this.frequenza = frequenza;
 	}
 
-	public String getNr() {
-		String numero;
+	public int getNr() {
+		int numero;
 		switch(nr) {
-		case 1:
-			numero="uno";
-		break;
-		case 2:
-			numero="due";
-		break;
-		case 3:
-			numero="tre";
-		break;
-		case 4:
-			numero="quattro";
-		break;
-		case 5:
-			numero="cinque";
-		break;
 		case 6:
-			numero="uno";
-		break;
-		case 7:
-			numero="sette";
-		break;
-		case 8:
-			numero="otto";
-		break;
-		case 9:
-			numero="Nove";
+			numero=1;
 		break;
 		default:
-			numero = Integer.toString(nr);
+			numero = nr;
 		break;
 		}
 		return numero;
