@@ -18,13 +18,11 @@ public class Sim {
 	}
 
 	public void Ricarica(float importo) {
-		do {
-			if(importo<=0.0f)
-				System.out.println("Importo errato!!!");
-			else {
-				credito+=importo;
-			}
-		}while(credito<=0.0f);
+		if(importo<=0.0f)
+			System.out.println("Importo errato!!!");
+		else {
+			credito+=importo;
+		}
 	}
 
 	public float getCredito() {

@@ -100,7 +100,9 @@ public class Main {
 		    	    	
 		    	    break;
 		    	    case "8":	//telefona
-			    	    sp.Telefona();
+		    	    	System.out.print("\nQuanti minuti sarà la chiamata?");
+			    		int minuti=Integer.parseInt(s.nextLine());
+			    	    sp.Telefona(minuti);
 			    	break;
 	    	        }
 	    	        if(!scelta2.equals("9")){

@@ -20,16 +20,14 @@ public class Smartphone extends Dispositivo{
 		this.scheda=scheda;
 	}
 	
-	public void Telefona() {
+	public void Telefona(int durata) {
 		if(isStato()) {
 			LocalDate oggi = LocalDate.now();
 			LocalDate scadenza = scheda.getScadenza();
 			int comparazione = oggi.compareTo(scadenza);
 			if(comparazione<0){
 				if(scheda.getCredito()>0) {
-					System.out.print("\nQuanti minuti sarà la chiamata?");
-					int minuti=Integer.parseInt(s.nextLine());
-					float importoChiamata=minuti*0.10f;
+					float importoChiamata=durata*0.10f;
 					float importoTot=scheda.getCredito()-importoChiamata;
 					scheda.setCredito(importoTot);
 				}
